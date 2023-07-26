@@ -93,7 +93,7 @@ public class ShortUrlController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
-
+    @CacheEvict(value = "myCache", allEntries = true)
     @PostMapping("api/url/create-short-url")
     public ResponseEntity<String> createShortUrl(@RequestBody LongUrlDto url) {
         try {
